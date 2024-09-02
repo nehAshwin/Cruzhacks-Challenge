@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllUser, getByEmail, getById, apply } from '../controllers/user-controller.js';
+import { getAllUser, getByEmail, getById, apply, deleteById } from '../controllers/user-controller.js';
 
 const router = express.Router();
 
@@ -14,7 +14,7 @@ router.post("/apply", apply);
 
 // delete by email
 // delete by id
-// router.delete("/delete/:id", deleteById);
+router.delete("/delete/:id", deleteById);
 
 
 

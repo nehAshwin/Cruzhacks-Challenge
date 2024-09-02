@@ -31,18 +31,19 @@ export const getByEmail = async(req, res, next) => {
 };
 
 export const getById = async(req, res, next) => {
+    //body
     const userId = req.params.id;
-
-    let user;
-    try{
-        user = await User.findById(userId);
+    let users;
+    try {
+        users = await User.findById(userId);
     } catch (err) {
         return console.log(err);
     }
-    if (!user) {
+
+    if (!users) {
         return res.status(404).json({message: "User Not Found"});
     }
-    return res.status(200).json({user});
+    return res.status(200).json({users});
 };
 
 export const apply = async(req, res, next) => {
@@ -70,4 +71,18 @@ export const apply = async(req, res, next) => {
     }
 
     return res.status(201).json({user})
+};
+
+export const deleteById = async(req, res, next) => {
+    const userId = req.params.id;
+    let user;
+    try {
+        user = await User.findByIdAndDelete(userId);
+    } catch (err) {
+        console.log(err);
+    }
+    if (!user) {
+        res.status(500).json({message: "Unable to Delete User"});
+    }
+    res.status(200).json({message: "Delete Successful"});
 };
