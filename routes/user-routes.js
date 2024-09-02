@@ -3,7 +3,7 @@ import { getAllUser, apply } from '../controllers/user-controller.js';
 
 const router = express.Router();
 
-// access all users from server
+// get all users from server (for debugging)
 router.get("/", getAllUser);
 
 router.post("/apply", apply);

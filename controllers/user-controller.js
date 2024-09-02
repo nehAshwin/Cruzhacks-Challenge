@@ -1,6 +1,6 @@
 import User from '../model/User.js';
 
-// get all user info function
+// get all user info function (for debugging)
 export const getAllUser = async(req, res, next)=>{
     let users;
     try {
@@ -29,17 +29,7 @@ export const apply = async(req, res, next) => {
     }
 
     // if user does not exist, create new user
-    const user = new User({
-        name, 
-        gender, 
-        otherGender, 
-        email, 
-        age, 
-        applicationType, 
-        ucscStudent, 
-        otherSchool, 
-        currentComp
-    });
+    const user = new User(req.body);
 
     // try catch block to save user
     try{
