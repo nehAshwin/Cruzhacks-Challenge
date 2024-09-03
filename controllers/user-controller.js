@@ -73,6 +73,27 @@ export const apply = async(req, res, next) => {
     return res.status(201).json({user})
 };
 
+export const updateUser = async(req, res, next) => {
+    //body
+    const userId = req.params.id;
+    const updateData = req.body;
+
+    delete updateData.email;
+    delete updateData.applicationType;
+
+    let user;
+    try {
+        user = await User.findByIdAndUpdate(userId, updateData);
+    } catch(err) {
+        return console.log(err);
+    }
+
+    if(!user){
+        return res.status(404).json({message: "User Not Found"});
+    }
+    return res.status(200).json({message: "User Update Successful"});
+};
+
 export const deleteById = async(req, res, next) => {
     const userId = req.params.id;
     let user;
