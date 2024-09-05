@@ -5,7 +5,7 @@ August 2024
 
 Description: This is a REST API that supports GET, POST, PATCH, and DELETE
 functions for applicants in a database. It is written in Javascript using
-node.js along with express and joi libraries.
+node.js along with express and mongoose libraries.
 
 Files:
 app.js - Contains the REST API code that supports the functions
@@ -30,7 +30,9 @@ For GET and DELETE requests add either the id or the email of the applicant afte
 last '/'. For PATCH requests the same applies, but only the id can be used.
 
 To enter data into the database use the following schema entered into the body:
+
 {
+
     "name": string [1-60 chars]
     "gender": ['He/Him', 'She/Her', 'Other']
     "otherGender": string [1-30 chars] (Only fill if Gender choice is other)
@@ -47,7 +49,9 @@ To enter data into the database use the following schema entered into the body:
 }
 
 Example schema:
+
 {
+
     "name": "Hema",
     "gender": "She/Her",
     "email": "hema@test.com",
