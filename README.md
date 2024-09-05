@@ -1,8 +1,7 @@
-# Cruzhacks-Challenge
+# Cruzhacks Backend Engineering Challenge
 
-## Devan O'Boyle
-## March 2022
-## CruzHacks 2023 Backend Engineering Challenge
+Neha Ashwin
+August 2024
 
 Description: This is a REST API that supports GET, POST, PATCH, and DELETE
 functions for applicants in a database. It is written in Javascript using
